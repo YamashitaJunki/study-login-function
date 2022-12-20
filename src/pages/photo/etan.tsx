@@ -1,10 +1,13 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { getPhotoList } from "../../lib/getPhotoList";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Home() {
+const photoList = getPhotoList();
+
+export default function Etan() {
   const { user, error, isLoading } = useUser();
   return (
     <div className={styles.container}>
@@ -14,9 +17,20 @@ export default function Home() {
       <main className={styles.main}>
         {user && (
           <div>
-            <h2>ようこそ{user.name}さん</h2>
-            <p>会員限定ページ</p>
-            <Link href="photo/etan">写真集</Link>
+            <h2>アルバム集</h2>
+            {photoList.map((item) => {
+              return (
+                <p key="index">
+                  <div>{item.title}</div>
+                  <Image
+                    src={item.src}
+                    width={1000}
+                    height={1000}
+                    alt="picture"
+                  />
+                </p>
+              );
+            })}
           </div>
         )}
         {!user && (
@@ -27,7 +41,7 @@ export default function Home() {
                 src="/login.png"
                 width={200}
                 height={200}
-                alt="Picture of the author"
+                alt="login icon"
               />
             </Link>{" "}
           </div>
