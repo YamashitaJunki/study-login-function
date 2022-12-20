@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@800&display=swap");
+
+.header {
+  z-index: 2;
+  background-color: rgb(37, 37, 37, 0.7);
+  color: aliceblue;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: "M PLUS 1", sans-serif;
+}
+
+.name {
+  -webkit-transform: translate(0, 25%);
+  -moz-transform: translate(0, 25%);
+  -ms-transform: translate(0, 25%);
+  -o-transform: translate(0, 25%);
+  transform: translate(0, 25%);
+}
+
+.log {
+}
